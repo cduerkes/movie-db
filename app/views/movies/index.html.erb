@@ -1,14 +1,7 @@
-<header class="header">
-  <div class="logo-box">
-    <%= link_to root_path do %>
-      <%= inline_svg('cow.svg', class: 'logo') %>
-    <% end %>
-  </div>
-</header>
-
 <body>
   <main>
     <% @movies.each do |movie| %>
+    <div class="container-fluid">
       <div class="box col-10 offset-1">
         <div class="row">
           <div class="col-12">
@@ -21,7 +14,7 @@
           </div>
         </div>
       </div>
-
+    </div>
       <hr />
     <% end %>
   </main>
