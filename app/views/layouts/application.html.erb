@@ -23,21 +23,14 @@
           <div class="col">&nbsp;</div>
           <div class="col-sm-4"
             <nav class="nav">
-              <div class="card"">
-                <div class="card-header">
-                  <h3 class="card-title heading-tertiary">welcome to moo.v db</h3>
-                </div>
-                <div class="card-body">
-                    <ul id="nav">
-                  <% if user_signed_in? %>
-                      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
-                  <% else %>
-                      <li><%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %></li>
-                      <li><%= link_to 'Sign Up!', new_user_registration_path, class: 'nav-link' %></li>
-                    </ul>
-                  <% end %>
-                </div>
-              </div>
+                <ul id="nav" class="float-right">
+              <% if user_signed_in? %>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+              <% else %>
+                  <li><%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %></li>
+                  <li><%= link_to 'Sign Up!', new_user_registration_path, class: 'nav-link' %></li>
+                </ul>
+              <% end %>
             </nav>
           </div>
         </div>

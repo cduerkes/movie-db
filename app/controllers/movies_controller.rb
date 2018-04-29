@@ -46,13 +46,12 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :summary)
+    params.require(:movie).permit(:title, :summary, :poster)
   end
 
   def require_admin
-    @movie = Movie.find(params[:id])
-    if current_user.admin != true
-      redirect_to movie_path(@movie), notice: "User must be admin."
+    unless current_user && current_user.admin = true
+      redirect_to root_path, notice: "User must be admin."
     end
   end
 end

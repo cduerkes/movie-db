@@ -1,21 +1,27 @@
 <body>
   <main>
     <% @movies.each do |movie| %>
-    <div class="container-fluid">
-      <div class="box col-10 offset-1">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <h3 class="heading-tertiary"><%= link_to movie.title, movie_path(movie) %></h3><br />
+          <div class="col"></div>
+          <div class="col-12 col-lg-6">
+            <div class="card"">
+              <div class="card-header">
+                <h3 class="card-title heading-tertiary"><%= link_to movie.title, movie_path(movie) %></h3>
+              </div>
+              <div class="card-body">
+                <hr />
+                <div class="col-12 col-sm-6">
+                  <div class="float-left"><%= image_tag movie.poster %></div>
+                </div>
+                <div class="col-12 col-sm-6 float-left"><h4 class="heading-quaternary">Synopsis: </br></h4><p class="synopsis"><%= movie.summary %></div></p>
+                <div class="col-12 col-sm-6 float-left"><h4 class="heading-quaternary">Average Score</h4></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm">
-            poster
-          </div>
+          <div class="col"></div>
         </div>
       </div>
-    </div>
-      <hr />
     <% end %>
   </main>
 </body>

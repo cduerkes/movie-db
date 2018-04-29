@@ -1,6 +1,7 @@
 <div class="box col-10 offset-1">
   <div class="col-12 col-sm">
     <p><%= @movie.summary %></p><br />
+    <%= image_tag @movie.poster %>
   </div>
   <div class="col-12 col-sm">
     <p>rating</p>
@@ -8,6 +9,37 @@
       <small><%= @movie.user.email %></small>
     <% end %>
   </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="photoButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a photo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <%= simple_form_for @movie do |f| %>
+        <div class="modal-body">
+          <%= f.input :poster %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a poster", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#photoButton">
+      Add a photo
+    </button>
+
+
   <div class="float-right">
     <% if current_user && @movie.user == current_user %>
       <%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-primary' %>
