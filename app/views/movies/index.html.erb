@@ -5,6 +5,7 @@
     <% end %>
   </div>
 </header>
+
 <body>
   <main>
     <% @movies.each do |movie| %>
@@ -23,6 +24,9 @@
           </div>
           <div class="col-12 col-sm">
             <p>rating</p>
+            <% if movie.user.present? %>
+              <small><%= movie.user.email %></small>
+            <% end %>
             <button class="btn btn-default">Add review</button>
             <button class="btn btn-default">Edit review</button>
           </div>
