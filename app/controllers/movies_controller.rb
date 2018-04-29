@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @movies = Movie.order(:created_at).page(params[:page])
@@ -38,5 +39,12 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:title, :summary)
+  end
+
+  def require_admin
+    @movie = Movie.find(params[:id])
+    if current_user.admin != true
+      redirect_to movie_path(@movie), notice: "User must be admin."
+    end
   end
 end
