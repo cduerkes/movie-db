@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Now you're able to identify administrators:
 
-Things you may want to cover:
+if current_user.admin?
+  # do something
+end
+If the page could potentially not have a current_user set then:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+if current_user.try(:admin?)
+  # do something
+end
+With the above way if current_user were nil, then it would still work without raising an undefined method admin? for nil:NilClass exception.
