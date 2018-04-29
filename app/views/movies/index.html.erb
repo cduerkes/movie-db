@@ -1,33 +1,49 @@
 <header class="header">
-  <h1 class="heading-primary">moo.v db</h1>
+  <div class="logo-box">
+    <%= link_to root_path do %>
+      <%= inline_svg('cow.svg', class: 'logo') %>
+    <% end %>
+  </div>
 </header>
-<main>
-  <% @movies.each do |movie| %>
-    <div class="box col-10 offset-1">
-      <div class="row">
-        <div class="col-12">
-          <h3 class="heading-tertiary"><%= movie.title %></h3><br />
+<body>
+  <main>
+    <% @movies.each do |movie| %>
+      <div class="box col-10 offset-1">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="heading-tertiary"><%= movie.title %></h3><br />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm">
+            poster
+          </div>
+          <div class="col-12 col-sm">
+            <p><%= movie.summary %></p><br />
+          </div>
+          <div class="col-12 col-sm">
+            <p>rating</p>
+            <button class="btn btn-default">Add review</button>
+            <button class="btn btn-default">Edit review</button>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 col-sm">
-          poster
-        </div>
-        <div class="col-12 col-sm">
-          <p><%= movie.summary %></p><br />
-        </div>
-        <div class="col-12 col-sm">
-          <p>rating</p>
-          <button class="btn btn-default">Add review</button>
-          <button class="btn btn-default">Edit review</button>
-        </div>
+
+      <hr />
+    <% end %>
+  </main>
+</body>
+
+<footer>
+  <div>
+    <div class="row">
+      <div class="paginate col-10 offset-1"">
+        <%= paginate @movies %>
+      </div>
+      <br /><br />
+      <div class="col-10 offset-1">
+        Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
       </div>
     </div>
-
-    <hr />
-  <% end %>
-</main>
-
-<div class="paginate col-10 offset-1">
-  <%= paginate @movies %>
-</div>
+  </div>
+</footer>
