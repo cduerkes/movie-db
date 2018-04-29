@@ -1,1 +1,49 @@
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; 
+  padding: 3rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'CallunaSansRegular', serif;
+  color: #313131;
+}
+
+.heading-primary {
+  font-size: 6rem;
+  font-weight: 100;
+  color: #c0392b;
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.header {
+  height: 95vh;
+}
+
+.box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+}

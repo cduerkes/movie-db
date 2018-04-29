@@ -1,1 +1,33 @@
-<h1>Movies!</h1>
+<header class="header">
+  <h1 class="heading-primary">moo.v db</h1>
+</header>
+<main>
+  <% @movies.each do |movie| %>
+    <div class="box col-10 offset-1">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="heading-tertiary"><%= movie.title %></h3><br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm">
+          poster
+        </div>
+        <div class="col-12 col-sm">
+          <p><%= movie.summary %></p><br />
+        </div>
+        <div class="col-12 col-sm">
+          <p>rating</p>
+          <button class="btn btn-default">Add review</button>
+          <button class="btn btn-default">Edit review</button>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+  <% end %>
+</main>
+
+<div class="paginate col-10 offset-1">
+  <%= paginate @movies %>
+</div>
