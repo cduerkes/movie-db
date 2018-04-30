@@ -56,7 +56,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
 
+source 'https://rails-assets.org' do 
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+
 gem 'bootstrap', '~> 4.1.0'
+gem "font-awesome-rails"
 gem 'simple_form'
 gem 'kaminari'
 gem 'inline_svg'

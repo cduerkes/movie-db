@@ -12,16 +12,25 @@
     <header class="header">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-2">
-
-              <div class="logo-box">
-                <%= link_to root_path do %>
-                  <%= inline_svg('cow.svg', class: 'logo') %>
-                <% end %>
-              </div>
+          <div class="col-sm-1">
+            <div class="logo-box">
+              <%= link_to root_path do %>
+                <%= inline_svg('cow.svg', class: 'logo') %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-sm-1 align-self-center">
+            <!-- Button trigger modal -->
+            <% if current_user && current_user.admin? %>
+              <%= link_to new_movie_path do %>
+                <button type="button" id="movie-button" class="btn btn-lg btn-primary float-left" data-toggle="modal" data-target="#movieButton">
+                  Add a movie
+                </button>
+              <% end %>
+            <% end %>
           </div>
           <div class="col">&nbsp;</div>
-          <div class="col-sm-4"
+          <div class="col-sm-4 align-self-center">
             <nav class="nav">
                 <ul id="nav" class="float-right">
               <% if user_signed_in? %>
