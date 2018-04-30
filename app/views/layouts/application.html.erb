@@ -45,6 +45,11 @@
       </div>
     </header>
 
+    <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Movies" %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
