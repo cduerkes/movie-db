@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      var BASE_URL = '<%= root_url %>';
+    </script>
   </head>
 
   <body>
@@ -43,20 +46,21 @@
           </div>
         </div>
       </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <% if notice.present? %>
+              <p class="alert alert-info"><%= notice %></p>
+            <% end %>
+            <% if alert.present? %>
+              <p class="alert alert-danger"><%= alert %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </header>
-
-    <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Movies" %>
-      <%= submit_tag "Search", :name => nil %>
-    <% end %>
-
-    <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
     <%= yield %>
   </body>
 </html>

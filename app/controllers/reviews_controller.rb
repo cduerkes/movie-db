@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def create
     @movie = Movie.find(params[:movie_id])
