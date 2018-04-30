@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $("#hearts > span").hover(function() {
+  $("#rating > span").hover(function() {
     $(this).prevAll().addClass('purple').removeClass('grey')
     $(this).addClass('purple').removeClass('grey')
     $(this).nextAll().addClass('grey').removeClass('purple')

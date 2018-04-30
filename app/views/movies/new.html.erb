@@ -1,10 +1,16 @@
-<div class="box col-10 offset-1">
-  <h2 class="heading-secondary">Add a movie</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="box col-12 col-lg-6">
+      <h2 class="heading-secondary">Add a movie</h2>
 
-  <%= simple_form_for @movie do |f| %>
-    <%= f.input :title %>
-    <%= f.input :summary %>
-    <br />
-    <%= f.submit "Post!", class: 'btn btn-primary' %>
-  <% end %>
+      <%= simple_form_for @movie do |f| %>
+        <%= f.input :title %>
+        <%= f.input :summary %>
+        <br />
+        <%= f.submit "Post!", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <div class="col"></div>
+  </div>
 </div>

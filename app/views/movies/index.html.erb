@@ -1,4 +1,5 @@
 <body>
+  <div class="index-header"></div>
   <main>
     <% @movies.each do |movie| %>
       <div class="container-fluid">
@@ -29,7 +30,11 @@
                       <span data-rating="5" class="grey">5</span>
                     </div>
                     <div class="float-left">
-                      <button class="btn btn-default">Add review</button>
+                      <%= link_to movie_path(movie) do %>
+                        <button type="button" class="btn btn-lg btn-primary float-left">
+                          Go to movie
+                        </button>
+                      <% end %>
                     </div>
                   </div>
                 </div>
