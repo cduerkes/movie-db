@@ -16,7 +16,7 @@
               <h4 class="heading-quaternary">Synopsis </br></h4>
               <p class="synopsis"><%= @movie.summary %></p>
 
-              <h4 class="heading-quaternary">Average Score</br></h4>
+              <h4 class="heading-quaternary">Add your rating</h4>
 
               <div id="rating">
                 <span data-rating="1" class="grey">1</span>
@@ -24,6 +24,10 @@
                 <span data-rating="3" class="grey">3</span>
                 <span data-rating="4" class="grey">4</span>
                 <span data-rating="5" class="grey">5</span>
+              </div>
+
+              <div class="form-group">
+                <textarea class="form-control" id="review-comment" placeholder="Add a review" rows="3"></textarea>
               </div>
               <div class="float-left">
                 <!-- Button trigger modal -->

@@ -103,6 +103,7 @@ a {
 }
 
 .heading-quaternary {
+  display: inline-block;
   font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -130,13 +131,18 @@ header {
   padding: 20px;
 }
 
+#rating {
+  margin-top: -1.5rem;
+  display: inline-block;
+}
+
 .grey {
-  font-size: 50px;
+  font-size: 35px;
   color: lightgrey;
 }
 
 .purple {
-  font-size: 50px;
+  font-size: 35px;
   color: purple;
 }
 
