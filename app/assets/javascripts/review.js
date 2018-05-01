@@ -15,6 +15,13 @@ $(document).ready(function () {
     var url = $('#rating').data('post-url');
     var comment = $('#review-comment').val();
 
+    function validate() {
+      if (hiddenRating < 1 || hiddenRating > 5) {
+          alert("Please enter a rating.");
+          return;
+      }
+    }
+
     var review = {
       comment: comment,
       rating: hiddenRating
@@ -27,15 +34,13 @@ $(document).ready(function () {
       data: { 
         review: review
       },
-      success: function(){
-        window.location.href = BASE_URL;
+      success: function(data){
+        // add reviews to show page
+        $('#reviews').append("<li>" + review.comment + "</li>");
       },
-      error: function(){
-
-        window.location.href = BASE_URL; // required because of response rails response format
+      error: function(data){
+        $('#reviews').append("<li>" + review.comment + "</li>"); // required due to error possibly involving rails response format
       }
     });
-
   });
-
 });
