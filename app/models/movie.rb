@@ -16,4 +16,12 @@ class Movie < ApplicationRecord
     return Review.where(movie_id: self.id)
   end
 
+  def self.search(search)
+    if search
+      where("summary LIKE ?", "%#{search}%").order("created_at DESC")
+    else
+      where.not(title: nil)
+    end
+  end
+
 end

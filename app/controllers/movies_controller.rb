@@ -3,7 +3,12 @@ class MoviesController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.order(:created_at).page(params[:page])
+    @movies = Movie.search(params[:search])
+    if @movies.class == Array
+      @movies = Kaminari.paginate_array(@movies).page(params[:page])
+    else
+      @movies = @movies.order(:created_at).page(params[:page]) # if @movies is AR::Relation object 
+    end
   end
 
   def new
