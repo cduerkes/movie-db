@@ -34,9 +34,15 @@
                 </div>
                 <div class="float-left">
                   <!-- Button trigger modal -->
-                  <button type="button" id="review-submit" class="btn btn-lg btn-primary float-left" data-toggle="modal" data-target="#reviewButton">
-                    Add review
+                  <button type="button" id="review-submit" class="btn btn-lg btn-primary float-left card-button" data-toggle="modal" data-target="#reviewButton">
+                    Add a review
                   </button>
+                  <br />
+                  <!-- Button trigger modal -->
+                  <button type="button" id="add-poster" class="btn btn-lg btn-primary float-left card-button" data-toggle="modal" data-target="#photoButton">
+                    Add a photo
+                  </button>
+
                 </div>
               </form>
             </div>
@@ -45,5 +51,53 @@
       </div>
     </div>
     <div class="col"></div>
+  </div>
+</div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="reviewButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a poster</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <%= simple_form_for @review, url: movie_reviews_path(@movie) do |f| %>
+        <div class="modal-body">
+          <%= f.input :comment %>
+          <%= f.input :rating %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add review", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="photoButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a poster</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <%= simple_form_for @movie do |f| %>
+        <div class="modal-body">
+          <%= f.input :poster %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a poster", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
