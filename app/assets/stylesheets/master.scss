@@ -184,3 +184,16 @@ input#search {
   width: 1px; 
   height: 1px;
 }
+
+.alert {
+  top: -7rem;
+}
+
+@media (max-width: 1000px) {
+    .spacer {
+      display: none;
+    }
+    nav.nav {
+      float: left;
+    }
+}
