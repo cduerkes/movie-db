@@ -39,7 +39,8 @@ $(document).ready(function () {
         $('#reviews').append("<li>" + review.comment + "</li>");
       },
       error: function(data){
-        $('#reviews').append("<li>" + review.comment + "</li>"); // required due to error possibly involving rails response format
+        $('#reviews').append("<li>" + review.comment + "</li>");// required due to error possibly involving rails response format
+        $('#review-comment').val(''); 
       }
     });
   });

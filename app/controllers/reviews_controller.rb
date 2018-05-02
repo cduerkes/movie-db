@@ -3,10 +3,11 @@ class ReviewsController < ApplicationController
   def create
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.create(review_params.merge(user: current_user))
-    if @review.valid?
+
+    if @review.valid? && @movie.movie_reviewed_by_current_user(current_user.id)
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to movie_path(@movie), status: :unprocessable_entity
     end
   end
 
@@ -18,8 +19,9 @@ class ReviewsController < ApplicationController
   def update
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.update_attributes(review_params.merge(user: current_user))
-    if @review.valid?
-      redirect_to review_path(@review)
+
+    if @review.valid? & movie_reviewed_by_current_user(current_user.id)
+      redirect_to movie_path(@movie)
     else
       render :edit, status: :unprocessable_entity
     end
