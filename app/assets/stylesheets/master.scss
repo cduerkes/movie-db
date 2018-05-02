@@ -167,3 +167,20 @@ header {
 #reviews > div {
   font-size: 1.5rem;
 }
+
+.search-container {
+  margin-bottom: 5rem;
+}
+
+input#search {
+    line-height: 2;
+    border-radius: .25rem;
+    font-size: 1.5rem;
+}
+
+.search-button {
+  position: absolute; 
+  left: -9999px; 
+  width: 1px; 
+  height: 1px;
+}

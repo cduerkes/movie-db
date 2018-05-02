@@ -1,9 +1,16 @@
 <body>
-
-<%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Movies" %>
-    <%= submit_tag "Search", :title => nil %>
-<% end %>
+<div class="search-container container-fluid">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-12 col-sm-6 form-group">
+      <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Movies", class: 'form-control input-large', tabindex: '1' %>
+          <%= submit_tag "Search", :title => nil, class: "btn btn-lg search-button"%>
+      <% end %>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
 
   <div class="index-header">
   <main>
